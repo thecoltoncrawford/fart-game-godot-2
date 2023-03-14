@@ -83,11 +83,8 @@ motion_mirroring = Vector2( 640, 480 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource( 5 )
 
-[node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 757.706, 240 )
-
 [node name="Fart" parent="." instance=ExtResource( 2 )]
-position = Vector2( 165.189, -54.6739 )
+position = Vector2( 145, 140 )
 
 [node name="Camera2D" type="Camera2D" parent="Fart"]
 offset = Vector2( 0, -20 )
@@ -135,5 +132,9 @@ shoot_time = 0.8
 position = Vector2( 530.824, 280 )
 direction = 3
 shoot_time = 0.8
+
+[node name="Character" parent="." instance=ExtResource( 1 )]
+position = Vector2( 755, 251 )
+next_scene = "res://LvlNeedlenose.tscn"
 
 [connection signal="body_entered" from="FallZone" to="Fart" method="_on_Area2D_body_entered"]

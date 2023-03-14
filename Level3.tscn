@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fart.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://spikes.tres" type="TileSet" id=6]
 [ext_resource path="res://Shooter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Level4.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
@@ -85,7 +84,7 @@ texture = ExtResource( 5 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 296.371, 77.0899 )
-next_scene = ExtResource( 8 )
+next_scene = "res://Level4.tscn"
 
 [node name="Fart" parent="." instance=ExtResource( 2 )]
 position = Vector2( 27.7153, 111.122 )

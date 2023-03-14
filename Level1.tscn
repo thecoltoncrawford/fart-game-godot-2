@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/test_tile.png" type="Texture" id=1]
 [ext_resource path="res://Fart.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Level2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Rope.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://Assets/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MovingPlatform.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -53,18 +54,6 @@ collision_layer = 2
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 65536, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 131072, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131101, 0, 0, 196608, 0, 0, 196637, 0, 0, 262144, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 327680, 0, 0, 327719, 0, 0, 393216, 0, 0, 393255, 0, 0, 458752, 0, 0, 458791, 0, 0, 524288, 0, 0, 524327, 0, 0, 589824, 0, 0, 589863, 0, 0, 655360, 0, 0, 655399, 0, 0, 720896, 0, 0, 720935, 0, 0, 786432, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786471, 0, 0, 851968, 0, 0, 852007, 0, 0, 917504, 0, 0, 917543, 0, 0, 983040, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, 1048576, 0, 0, 1048602, 0, 0, 1048615, 0, 0, 1114112, 0, 0, 1114138, 0, 0, 1114151, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1179685, 0, 0, 1179686, 0, 0 )
 
-[node name="Fart" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58.9423, 67.8698 )
-
-[node name="Camera2D" type="Camera2D" parent="Fart"]
-current = true
-limit_left = 0
-limit_bottom = 162
-limit_smoothed = true
-smoothing_enabled = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="FallZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
@@ -85,10 +74,33 @@ motion_scale = Vector2( 1.2, 1.2 )
 motion_mirroring = Vector2( 640, 480 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 5, -1 )
 texture = ExtResource( 5 )
 
 [node name="Character" parent="." instance=ExtResource( 6 )]
 position = Vector2( 143.493, 80.9191 )
-next_scene = ExtResource( 3 )
+next_scene = "res://Level2.tscn"
+
+[node name="Rope" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 88 )
+
+[node name="Fart" parent="." instance=ExtResource( 2 )]
+position = Vector2( 43, 107 )
+
+[node name="Camera2D" type="Camera2D" parent="Fart"]
+current = true
+limit_left = 0
+limit_bottom = 162
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 128, 136 )
+pause_time = 0.5
+
+[node name="MovingPlatform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 128, 128 )
 
 [connection signal="body_entered" from="FallZone" to="Fart" method="_on_Area2D_body_entered"]

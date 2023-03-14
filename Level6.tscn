@@ -1,0 +1,315 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/test_tile.png" type="Texture" id=1]
+[ext_resource path="res://Fart.tscn" type="PackedScene" id=2]
+[ext_resource path="res://spikes.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/set2_background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/set2_tiles.png" type="Texture" id=5]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MovingPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ElectroBall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BlockDisappear.tscn" type="PackedScene" id=9]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+"
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "test_tile.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 546.428, 10 )
+
+[node name="Level6" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -1966074, -536870912, 0, -1900538, -536870912, 0, -1835002, -536870912, 0, -1769466, -536870912, 0, -1703930, -536870912, 0, -1638394, -536870912, 0, -1572858, -536870912, 0, -1507322, -536870912, 0, -1507278, -536870912, 0, -1507277, -536870912, 0, -1507276, -536870912, 0, -1507275, -536870912, 0, -1507274, -536870912, 0, -1507273, -536870912, 0, -1507272, -2147483648, 0, -1507271, -2147483648, 0, -1507270, -2147483648, 0, -1507269, -2147483648, 0, -1507268, -2147483648, 0, -1507267, -2147483648, 0, -1507266, -2147483648, 0, -1507265, -536870912, 0, -1507264, -536870912, 0, -1507263, -536870912, 0, -1507262, -536870912, 0, -1507261, -536870912, 0, -1507260, -536870912, 0, -1507243, -2147483648, 0, -1507242, -2147483648, 0, -1507241, -2147483648, 0, -1507240, -2147483648, 0, -1507239, -2147483648, 0, -1507238, -2147483648, 0, -1507237, -2147483648, 0, -1507236, -2147483648, 0, -1507235, -2147483648, 0, -1507234, -1610612736, 0, -1507233, -1610612736, 0, -1507232, -1610612736, 0, -1507231, -1610612736, 0, -1507230, -1610612736, 0, -1507229, -1610612736, 0, -1507228, -2147483648, 0, -1441786, -536870912, 0, -1376250, -536870912, 0, -1310714, -536870912, 0, -1245178, -536870912, 0, -1179642, -536870912, 0, -1114106, -536870912, 0, -1114105, -536870912, 0, -1114104, -536870912, 0, -1114103, -536870912, 0, -1114102, -536870912, 0, -1114101, -536870912, 0, -1114100, -536870912, 0, -1114099, -536870912, 0, -1114098, -536870912, 0, -1114062, -536870912, 0, -1114061, -536870912, 0, -1114060, -536870912, 0, -1114059, -536870912, 0, -1114058, -536870912, 0, -1114057, -2147483648, 0, -1114056, -2147483648, 0, -1114055, -2147483648, 0, -1114054, -2147483648, 0, -1114053, -2147483648, 0, -1114052, -2147483648, 0, -1114051, -2147483648, 0, -1114050, -2147483648, 0, -1114049, -536870912, 0, -1114048, -536870912, 0, -1114047, -536870912, 0, -1114046, -536870912, 0, -1114045, -536870912, 0, -1114044, -536870912, 0, -1114027, -2147483648, 0, -1114026, -2147483648, 0, -1114025, -2147483648, 0, -1114024, -2147483648, 0, -1114023, -2147483648, 0, -1114022, -2147483648, 0, -1114021, -2147483648, 0, -1114020, -2147483648, 0, -1114019, -2147483648, 0, -1114018, -1610612736, 0, -1114017, -1073741824, 0, -1114016, -1073741824, 0, -1114015, -1073741824, 0, -1114014, -1610612736, 0, -1114013, -1610612736, 0, -1114012, -2147483648, 0, -982926, -1073741824, 0, -982925, -1073741824, 0, -982924, -1073741824, 0, -982923, -1073741824, 0, -982922, -1073741824, 0, -982921, -1073741824, 0, -982920, -1073741824, 0, -655240, -1073741824, 0, -589704, -1073741824, 0, -589695, -1073741824, 0, -524168, -1073741824, 0, -524159, -1073741824, 0, -458632, -1073741824, 0, -458623, -1073741824, 0, -393096, -1073741824, 0, -393087, -1073741824, 0, -327560, -1073741824, 0, -327551, -1073741824, 0, -262024, -1073741824, 0, -262015, -1073741824, 0, -196488, -1073741824, 0, -196479, -1073741824, 0, -130952, -1073741824, 0, -130943, -1073741824, 0, -65416, -1073741824, 0, -65407, -1073741824, 0, 120, -1073741824, 0, 129, -1073741824, 0, 65656, -1073741824, 0, 65665, -1073741824, 0, 131192, -1073741824, 0, 131201, -1073741824, 0, 196728, -1073741824, 0, 196737, -1073741824, 0, 262264, -1073741824, 0, 262273, -1073741824, 0, 327800, -1073741824, 0, 327809, -1073741824, 0, 393336, -1073741824, 0, 393345, -1073741824, 0, 458872, -1073741824, 0, 458881, -1073741824, 0, 524288, 0, 0, 524408, -1073741824, 0, 524417, -1073741824, 0, 589824, 0, 0, 589944, -1073741824, 0, 589953, -1073741824, 0, 655360, 0, 0, 655480, -1073741824, 0, 655489, -1073741824, 0, 720896, 0, 0, 721016, -1073741824, 0, 721025, -1073741824, 0, 786432, 0, 0, 786561, -1073741824, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0, 852008, 0, 0, 852009, 0, 0, 852097, -1073741824, 0, 917504, 0, 0, 917633, -1073741824, 0, 983040, 0, 0, 983169, -1073741824, 0, 1048576, 0, 0, 1048634, -1073741824, 0, 1048635, -1073741824, 0, 1048636, 0, 0, 1048656, -1073741824, 0, 1048657, -1073741824, 0, 1048658, -1073741824, 0, 1048679, -1073741824, 0, 1048680, -1073741824, 0, 1048681, -1073741824, 0, 1048705, -1073741824, 0, 1114112, 0, 0, 1114170, -536870912, 0, 1114171, -536870912, 0, 1114172, 0, 0, 1114192, -1073741824, 0, 1114193, -1073741824, 0, 1114194, -536870912, 0, 1114215, -1073741824, 0, 1114216, -1073741824, 0, 1114217, -1073741824, 0, 1114241, -1073741824, 0, 1179648, 0, 0, 1179777, -1073741824, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0, 1245206, 0, 0, 1245207, 0, 0, 1245208, 0, 0, 1245209, 0, 0, 1245210, 0, 0, 1245211, 0, 0, 1245212, 0, 0, 1245213, 0, 0, 1245214, 0, 0, 1245215, 0, 0, 1245216, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1245221, 0, 0, 1245222, 0, 0, 1245223, 0, 0, 1245224, 0, 0, 1245225, 0, 0, 1245226, 0, 0, 1245313, -1073741824, 0 )
+
+[node name="TileMapSpikes" type="TileMap" parent="."]
+rotation = 1.5708
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+show_collision = true
+collision_layer = 4
+format = 1
+tile_data = PoolIntArray( -6946801, -1073741824, 0, -6881265, -1073741824, 0, -6815729, -1073741824, 0, -6553622, -536870912, 0, -6553618, -2147483648, 0, -6488086, -1610612736, 0, -6488082, -2147483648, 0, -6422550, -1610612736, 0, -6422546, -2147483648, 0, -6357014, -1610612736, 0, -6357010, -1073741824, 0, -6291478, -1610612736, 0, -6291474, -1073741824, 0, -6225942, -1610612736, 0, -6225938, -1073741824, 0, -6160406, -1610612736, 0, -6160402, -2147483648, 0, -6094870, -536870912, 0, -6094866, -2147483648, 0, -6029334, -536870912, 0, -6029330, -2147483648, 0, -5963798, -536870912, 0, -5963794, -2147483648, 0, -5898262, -536870912, 0, -5898258, -2147483648, 0, -5832726, -536870912, 0, -5832722, -2147483648, 0, -5767190, -536870912, 0, -5767186, -2147483648, 0, -5701654, -536870912, 0, -5701650, -2147483648, 0, -5636118, -536870912, 0, -5636114, -2147483648, 0, -5570582, -536870912, 0, -5570578, -2147483648, 0, -5439473, -1073741824, 0, -5373937, -1073741824, 0, -5308401, -1073741824, 0, -3997681, -1073741824, 0, -3932145, -1073741824, 0, -3866609, -1073741824, 0 )
+
+[node name="FallZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+position = Vector2( 661.572, 262.244 )
+shape = SubResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 640, 480 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.2, 1.2 )
+motion_mirroring = Vector2( 640, 480 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 5 )
+
+[node name="Character" parent="." instance=ExtResource( 6 )]
+position = Vector2( 88, -160 )
+
+[node name="MovingPlatform4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 528, 152 )
+move_distance = 13
+pause_time = 0.5
+
+[node name="MovingPlatform5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 600, 152 )
+start_direction = 1
+move_distance = 13
+pause_time = 0.5
+
+[node name="MovingPlatform6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 888, 152 )
+move_distance = 13
+pause_time = 0.5
+
+[node name="MovingPlatform7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 848, -120 )
+move_distance = 23
+pause_time = 0.5
+
+[node name="MovingPlatform8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 360, -120 )
+move_distance = 25
+pause_time = 0.5
+
+[node name="ElectroBall" parent="." instance=ExtResource( 8 )]
+position = Vector2( 64, 112 )
+
+[node name="ElectroBall4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 960, 80 )
+
+[node name="ElectroBall6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 960, -56 )
+
+[node name="ElectroBall7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 480, -184 )
+
+[node name="ElectroBall8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 408, -128 )
+
+[node name="ElectroBall9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 552, -128 )
+
+[node name="ElectroBall5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1040, 8 )
+
+[node name="ElectroBall2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 288, 112 )
+
+[node name="ElectroBall3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 176, 160 )
+
+[node name="Fart" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 136 )
+
+[node name="Camera2D" type="Camera2D" parent="Fart"]
+current = true
+limit_left = 0
+limit_bottom = 179
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="BlockContainer" type="Node2D" parent="."]
+
+[node name="BlockDisappear" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -76 )
+
+[node name="BlockDisappear2" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -68 )
+
+[node name="BlockDisappear3" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -60 )
+
+[node name="BlockDisappear4" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -52 )
+
+[node name="BlockDisappear5" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -44 )
+
+[node name="BlockDisappear6" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -36 )
+
+[node name="BlockDisappear7" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -28 )
+
+[node name="BlockDisappear8" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -20 )
+
+[node name="BlockDisappear9" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -12 )
+
+[node name="BlockDisappear10" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, -4 )
+
+[node name="BlockDisappear11" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 4 )
+
+[node name="BlockDisappear12" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 12 )
+
+[node name="BlockDisappear13" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 20 )
+
+[node name="BlockDisappear14" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 28 )
+
+[node name="BlockDisappear15" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 36 )
+
+[node name="BlockDisappear16" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 44 )
+
+[node name="BlockDisappear17" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 52 )
+
+[node name="BlockDisappear18" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 60 )
+
+[node name="BlockDisappear19" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 68 )
+
+[node name="BlockDisappear20" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 76 )
+
+[node name="BlockDisappear21" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 84 )
+
+[node name="BlockDisappear22" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 972, 92 )
+
+[node name="BlockDisappear23" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -68 )
+
+[node name="BlockDisappear24" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -60 )
+
+[node name="BlockDisappear25" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -52 )
+
+[node name="BlockDisappear26" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -44 )
+
+[node name="BlockDisappear27" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -36 )
+
+[node name="BlockDisappear28" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -28 )
+
+[node name="BlockDisappear29" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -20 )
+
+[node name="BlockDisappear30" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -12 )
+
+[node name="BlockDisappear31" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, -4 )
+
+[node name="BlockDisappear32" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 4 )
+
+[node name="BlockDisappear33" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 12 )
+
+[node name="BlockDisappear34" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 20 )
+
+[node name="BlockDisappear35" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 28 )
+
+[node name="BlockDisappear36" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 36 )
+
+[node name="BlockDisappear37" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 44 )
+
+[node name="BlockDisappear38" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 52 )
+
+[node name="BlockDisappear39" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 60 )
+
+[node name="BlockDisappear40" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 68 )
+
+[node name="BlockDisappear41" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 76 )
+
+[node name="BlockDisappear42" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 84 )
+
+[node name="BlockDisappear43" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 92 )
+
+[node name="BlockDisappear44" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 100 )
+
+[node name="BlockDisappear45" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 108 )
+
+[node name="BlockDisappear46" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 116 )
+
+[node name="BlockDisappear47" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 124 )
+
+[node name="BlockDisappear48" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 132 )
+
+[node name="BlockDisappear49" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 140 )
+
+[node name="BlockDisappear50" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 148 )
+
+[node name="BlockDisappear51" parent="BlockContainer" instance=ExtResource( 9 )]
+position = Vector2( 1028, 156 )
+
+[connection signal="body_entered" from="FallZone" to="Fart" method="_on_Area2D_body_entered"]

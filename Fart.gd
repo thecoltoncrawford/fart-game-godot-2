@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # States
-enum States { AIR, FLOOR, WALL, LAUNCH, FLOAT }
+enum States { AIR, FLOOR, WALL, LAUNCH, FLOAT, ROPE }
 var state = States.AIR
 
 # Variables & Constants
@@ -11,6 +11,8 @@ var current_level = null
 var direction = 0
 var degrees = 90 # For launch state
 var can_float = false
+var rope = null
+var can_grab_rope = false
 const STAMINA_MAX = 40
 const JUMPFORCE = 200
 const LERPAMOUNT = 0.1
@@ -34,6 +36,10 @@ func _physics_process(delta):
 
 	match state:
 		States.AIR:
+			# Switch to Rope state
+			if can_grab_rope:
+				if Input.is_action_pressed("hold_rope"):
+					state = States.ROPE
 			# Switch to Float state
 			if can_float:
 				if Input.is_action_just_pressed("jump"):
@@ -153,6 +159,18 @@ func _physics_process(delta):
 			move_left_right()
 			set_direction()
 			move_and_fall()
+		States.ROPE:
+			if not Input.is_action_pressed("hold_rope"):
+				can_grab_rope = false
+				state = States.AIR
+			else:
+				Input.start_joy_vibration(0, 0.3, 0, 0.1)
+				
+			if Input.is_action_just_pressed("jump"):
+				can_grab_rope = false
+				velocity.y = -JUMPFORCE
+				state = States.AIR
+			global_position = lerp(global_position, rope.global_position, 0.6)
 
 
 func move_left_right():
@@ -185,5 +203,13 @@ func restart_level():
 	get_tree().change_scene(current_level)
 
 func _on_HazardArea_body_entered(body):
+	Input.start_joy_vibration(0, 0.7, 0.7, 0.3)
 	get_tree().change_scene(current_level)
 
+func _on_RopeArea_area_entered(area):
+	rope = area.get_node("HoldArea")
+	can_grab_rope = true
+	Input.start_joy_vibration(0, 0.5, 0.5, 0.2)
+	
+func _on_RopeArea_area_exited(area):
+	can_grab_rope = false
