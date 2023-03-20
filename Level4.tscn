@@ -81,7 +81,7 @@ position = Vector2( 55.0367, -67.3057 )
 next_scene = "res://Level5.tscn"
 
 [node name="Fart" parent="." instance=ExtResource( 2 )]
-position = Vector2( 291.896, 103.083 )
+position = Vector2( 292, 103 )
 
 [node name="Camera2D" type="Camera2D" parent="Fart"]
 current = true
