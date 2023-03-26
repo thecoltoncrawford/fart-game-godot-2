@@ -1,0 +1,258 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/UI/xbox_x.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/xbox_lstick_r.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/xbox_lstick.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/xbox_lstick_l.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/xbox_a.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Pixeboy.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/UI/switch_b.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/switch_y.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/ps_x.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/ps_square.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 6 )
+
+[node name="KeyBindings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Xbox" type="Control" parent="."]
+margin_top = 16.0
+margin_right = 168.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Xbox"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="Xbox"]
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 32.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect4" type="TextureRect" parent="Xbox"]
+margin_top = 32.0
+margin_right = 16.0
+margin_bottom = 48.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="Xbox"]
+margin_top = 48.0
+margin_right = 16.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Xbox"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 40.0
+margin_bottom = 32.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 24.0
+margin_top = 48.0
+margin_right = 42.0
+margin_bottom = 64.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_right = 18.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 66.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="Text" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Text"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 59.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "= jump"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Text"]
+margin_left = 16.0
+margin_right = 59.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "= move"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Text"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 91.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "= float"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Text"]
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 137.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 1 )
+text = "(hold) = grab rope"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Text"]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 204.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+text = "(on wall) = wall jump"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Text"]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 24.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "+"
+valign = 1
+
+[node name="Label4" type="Label" parent="Text"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 24.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+text = "+"
+valign = 1
+
+[node name="Label5" type="Label" parent="Text"]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 56.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+text = "/"
+valign = 1
+
+[node name="Switch" type="Control" parent="."]
+margin_right = 320.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Switch"]
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 32.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect2" type="TextureRect" parent="Switch"]
+margin_top = 32.0
+margin_right = 16.0
+margin_bottom = 48.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect3" type="TextureRect" parent="Switch"]
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 48.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect4" type="TextureRect" parent="Switch"]
+margin_top = 48.0
+margin_right = 16.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="TextureRect5" type="TextureRect" parent="Switch"]
+margin_top = 64.0
+margin_right = 16.0
+margin_bottom = 80.0
+texture = ExtResource( 8 )
+
+[node name="Playstation" type="Control" parent="."]
+margin_right = 256.0
+margin_bottom = 152.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Playstation"]
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 32.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect3" type="TextureRect" parent="Playstation"]
+margin_top = 32.0
+margin_right = 16.0
+margin_bottom = 48.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect4" type="TextureRect" parent="Playstation"]
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 48.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect5" type="TextureRect" parent="Playstation"]
+margin_top = 48.0
+margin_right = 16.0
+margin_bottom = 64.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect6" type="TextureRect" parent="Playstation"]
+margin_top = 64.0
+margin_right = 16.0
+margin_bottom = 80.0
+texture = ExtResource( 10 )
