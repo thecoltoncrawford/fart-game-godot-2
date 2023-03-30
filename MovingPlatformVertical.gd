@@ -38,7 +38,6 @@ func _physics_process(delta):
 				dir -= 1
 		
 	position.y += MOVE_SPEED * dir
-	print(dir)
 
 func _on_Timer_timeout():
 	if last_dir == -1:

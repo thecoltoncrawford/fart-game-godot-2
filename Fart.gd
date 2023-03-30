@@ -13,6 +13,7 @@ var degrees = 90 # For launch state
 var can_float = false
 var rope = null
 var can_grab_rope = false
+var keybindings = preload("res://KeyBindings.tscn")
 const STAMINA_MAX = 40
 const JUMPFORCE = 200
 const LERPAMOUNT = 0.1
