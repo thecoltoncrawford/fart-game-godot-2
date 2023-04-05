@@ -31,6 +31,9 @@ func _ready():
 	current_level = get_tree().get_current_scene().get_name() + ".tscn"
 
 func _physics_process(delta):
+	#print(state)
+	#print("floor") if is_on_floor() else print("not")
+	#print(velocity.y)
 	
 	$StaminaBar.value = stamina
 	$StaminaWheel.value = stamina
@@ -70,6 +73,7 @@ func _physics_process(delta):
 			move_and_fall()
 			
 		States.FLOOR:
+			
 			# Switch to air state if falling
 			if not is_on_floor():
 				state = States.AIR
@@ -160,6 +164,7 @@ func _physics_process(delta):
 			move_left_right()
 			set_direction()
 			move_and_fall()
+			
 		States.ROPE:
 			if not Input.is_action_pressed("hold_rope"):
 				can_grab_rope = false

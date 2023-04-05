@@ -2,14 +2,18 @@
 
 [ext_resource path="res://Assets/test_tile.png" type="Texture" id=1]
 [ext_resource path="res://Fart.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Rope.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://Assets/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=6]
 [ext_resource path="res://MovingPlatformVertical.tscn" type="PackedScene" id=7]
+[ext_resource path="res://KeyBindings.tscn" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
+
+func _physics_process(delta):
+	if Input.is_action_just_released(\"pause\"):
+		$KeyBindings.visible = true if not $KeyBindings.visible else false 
 "
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
@@ -42,6 +46,7 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 extents = Vector2( 328.491, 10 )
 
 [node name="Level1" type="Node2D"]
+pause_mode = 1
 script = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -80,8 +85,17 @@ texture = ExtResource( 5 )
 position = Vector2( 143.493, 80.9191 )
 next_scene = "res://Level2.tscn"
 
-[node name="Rope" parent="." instance=ExtResource( 3 )]
-position = Vector2( 72, 24 )
+[node name="KeyBindings" parent="." instance=ExtResource( 8 )]
+visible = false
+margin_left = -0.761078
+margin_top = -21.6902
+margin_right = -0.761078
+margin_bottom = -21.6902
+
+[node name="MovingPlatformVertical" parent="." instance=ExtResource( 7 )]
+position = Vector2( 88, 120 )
+start_direction = 1
+move_distance = 6
 
 [node name="Fart" parent="." instance=ExtResource( 2 )]
 position = Vector2( 43, 107 )
@@ -94,9 +108,5 @@ limit_smoothed = true
 smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="MovingPlatformVertical" parent="." instance=ExtResource( 7 )]
-position = Vector2( 96, 168 )
-move_distance = 6
 
 [connection signal="body_entered" from="FallZone" to="Fart" method="_on_Area2D_body_entered"]

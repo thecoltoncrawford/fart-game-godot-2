@@ -4,11 +4,15 @@
 [ext_resource path="res://MovingPlatformVertical.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 24 )
+extents = Vector2( 8, 24.1633 )
 
 [node name="MovingPlatformVertical" type="KinematicBody2D"]
 collision_layer = 2
+collision/safe_margin = 0.1
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1.13687e-13, 1.90735e-06 )
@@ -16,9 +20,12 @@ scale = Vector2( 0.25, 0.75 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.105911, -0.529549 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
